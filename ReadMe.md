@@ -13,15 +13,15 @@ flux bootstrap github \
  --personal
 
 # Define source SOT
-flux create source git k8s_nginxapp_sot \
- --url=https://github.com/biraderomkar/k8s_nginxapp_sot.git \
+flux create source git fluxtest \
+ --url=https://github.com/krishs50/fluxtest.git \
  --branch=main \
  --interval=30s \
  --export > ./deploy/flux_source.yaml
 
 # Apply above source SOT using kustomization controller
- flux create kustomization k8s_nginxapp_sot \
- --source=k8s_nginxapp_sot  \
+ flux create kustomization fluxtest \
+ --source=fluxtest  \
  --path="./deploy/" \
  --prune=true \
  --validation=client \
